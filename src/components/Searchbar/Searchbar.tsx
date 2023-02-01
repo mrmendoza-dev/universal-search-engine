@@ -85,6 +85,8 @@ const Searchbar = () => {
   };
 
   const handleSubmit = (e: any) => {
+        e.preventDefault();
+
     console.log(selectedOption);
     if (inputValue) {
       let engine: any = searchEngines.find(
@@ -98,17 +100,23 @@ const Searchbar = () => {
 
   return (
     <div className="Searchbar">
-      <select name="option" value={selectedOption.name} onChange={handleChange}>
-        {searchEngines.map((engine) => (
-          <option key={engine.name} value={engine.name}>
-            {engine.name}
-          </option>
-        ))}
-      </select>
-      <input type="text" value={inputValue} onChange={handleChange} />
-      <button onClick={handleSubmit}>
-        <i className="fa-solid fa-magnifying-glass"></i>
-      </button>
+      <form onSubmit={handleSubmit}>
+        <select
+          name="option"
+          value={selectedOption.name}
+          onChange={handleChange}
+        >
+          {searchEngines.map((engine) => (
+            <option key={engine.name} value={engine.name}>
+              {engine.name}
+            </option>
+          ))}
+        </select>
+        <input type="text" value={inputValue} onChange={handleChange} />
+        <button onClick={handleSubmit}>
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
     </div>
   );
 };

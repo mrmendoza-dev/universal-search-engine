@@ -1,6 +1,11 @@
 
-
 .Searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Searchbar form {
     min-width: 300px;
     width: 600px;
     display: flex;
