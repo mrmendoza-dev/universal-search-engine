@@ -2,53 +2,65 @@ import "./index.css"
 import { useState, useEffect } from "react";
 
 const Searchbar = () => {
-  const searchEngines = [
-    {
-      name: "Google",
-      homepage: "https://www.google.com/",
-      searchURL: "https://www.google.com/search?q=",
-    },
-    {
-      name: "Bing",
-      homepage: "https://www.bing.com/",
-      searchURL: "https://www.bing.com/search?q=",
-    },
-    {
-      name: "Yahoo",
-      homepage: "https://www.yahoo.com/",
-      searchURL: "https://www.search.yahoo.com/search?p=",
-    },
-    {
-      name: "DuckDuckGo",
-      homepage: "https://duckduckgo.com/",
-      searchURL: "https://duckduckgo.com/?q=",
-    },
-    {
-      name: "Baidu",
-      homepage: "https://www.baidu.com/",
-      searchURL: "https://www.baidu.com/s?wd=",
-    },
-    {
-      name: "Yandex",
-      homepage: "https://www.yandex.com/",
-      searchURL: "https://www.yandex.com/search/?text=",
-    },
-    {
-      name: "WolframAlpha",
-      homepage: "https://www.wolframalpha.com/",
-      searchURL: "https://www.wolframalpha.com/input/?i=",
-    },
-    {
-      name: "Ask",
-      homepage: "https://www.ask.com/",
-      searchURL: "https://www.ask.com/web?q=",
-    },
-    {
-      name: "Aol",
-      homepage: "https://www.aol.com/",
-      searchURL: "https://search.aol.com/aol/search?q=",
-    },
-  ];
+  // Replace %s with query
+const searchEngines = [
+  {
+    name: "Google",
+    homepage: "https://www.google.com/",
+    searchURL: "https://www.google.com/search?q=",
+    imageSearchURL: "https://www.google.com/search?q=%s&tbm=isch",
+  },
+  {
+    name: "Bing",
+    homepage: "https://www.bing.com/",
+    searchURL: "https://www.bing.com/search?q=",
+    imageSearchURL: "https://www.bing.com/images/search?q=%s",
+  },
+  {
+    name: "Yahoo",
+    homepage: "https://www.yahoo.com/",
+    searchURL: "https://www.search.yahoo.com/search?p=",
+    imageSearchURL: "https://images.search.yahoo.com/search/images?p=%s",
+  },
+  {
+    name: "DuckDuckGo",
+    homepage: "https://duckduckgo.com/",
+    searchURL: "https://duckduckgo.com/?q=",
+    imageSearchURL: "https://duckduckgo.com/?q=%s&iax=images&ia=images",
+  },
+  {
+    name: "Baidu",
+    homepage: "https://www.baidu.com/",
+    searchURL: "https://www.baidu.com/s?wd=",
+    imageSearchURL:
+      "https://image.baidu.com/search/index?tn=baiduimage&word=%s",
+  },
+  {
+    name: "Yandex",
+    homepage: "https://www.yandex.com/",
+    searchURL: "https://www.yandex.com/search/?text=",
+    imageSearchURL: "https://yandex.com/images/search?text=%s",
+  },
+  {
+    name: "WolframAlpha",
+    homepage: "https://www.wolframalpha.com/",
+    searchURL: "https://www.wolframalpha.com/input/?i=",
+    imageSearchURL: "https://www.wolframalpha.com/input/?i=%s&t=image",
+  },
+  {
+    name: "Ask",
+    homepage: "https://www.ask.com/",
+    searchURL: "https://www.ask.com/web?q=",
+    imageSearchURL: "https://www.ask.com/images?q=%s",
+  },
+  {
+    name: "Aol",
+    homepage: "https://www.aol.com/",
+    searchURL: "https://search.aol.com/aol/search?q=",
+    imageSearchURL: "https://www.search.aol.com/aol/image?q=%s",
+  },
+];
+
 
   const defaultOption = searchEngines[0];
   const storedOption = localStorage.getItem("selectedOption");
