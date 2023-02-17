@@ -11,6 +11,12 @@ const Searchbar = () => {
       imageSearchURL: "https://www.google.com/search?q=%s&tbm=isch",
     },
     {
+      name: "Brave",
+      homepage: "https://search.brave.com/",
+      searchURL: "https://search.brave.com/search?q=",
+      imageSearchURL: "https://search.brave.com/images?q=%s",
+    },
+    {
       name: "Bing",
       homepage: "https://www.bing.com/",
       searchURL: "https://www.bing.com/search?q=",
