@@ -1,58 +1,62 @@
-
 .Searchbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Searchbar form {
-    min-width: 300px;
-    width: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
+  min-width: 300px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
 }
 
 .Searchbar * {
-    height: 100%;
-
+  height: 100%;
 }
-.Searchbar select:focus, .Searchbar:focus select, .Searchbar:focus select {
+
+.Searchbar select:focus,
+.Searchbar:focus select,
+.Searchbar:focus select {
   outline: none;
 }
 
 .Searchbar select {
-    border-radius: 10px 0px 0px 10px;
-    background-color: #3b3b3b;
-    border: none;
-    text-align: center;
-    border-right: 1px solid rgb(101, 101, 101);
-
+  background-color: #3b3b3b;
+  border: none;
+  text-align: center;
+  border-right: 1px solid rgb(101, 101, 101);
 }
 
+.Searchbar .select-engine {
+  border-right: 1px solid rgb(101, 101, 101);
+  border-radius: 10px 0px 0px 10px;
+}
+.Searchbar .select-mode {
+  padding: 0 0.6em;
+  border-right: 1px solid rgb(101, 101, 101);
+}
 
 .Searchbar input {
-    flex-basis: 80%;
-    background-color: #3b3b3b;
-    outline: none;
-    border: none;
-    padding: 0 1em;
-
-
+  flex-basis: 80%;
+  background-color: #3b3b3b;
+  outline: none;
+  border: none;
+  padding: 0 1em;
 }
 .Searchbar button {
-    border-radius: 0 10px 10px 0;
-    background-color: #3b3b3b;
-    border: none;
-    border-left: 1px solid rgb(101, 101, 101);
-      padding: 0.6em 1.6em;
+  border-radius: 0 10px 10px 0;
+  background-color: #3b3b3b;
+  border: none;
+  border-left: 1px solid rgb(101, 101, 101);
+  padding: 0.6em 1.6em;
   font-weight: 500;
   font-family: inherit;
-  font-size: .8rem;
-    cursor: pointer;
-      transition: all 200ms;
-
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 200ms;
 }
 
 .Searchbar button i {
