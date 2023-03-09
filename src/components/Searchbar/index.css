@@ -27,16 +27,14 @@
   background-color: #3b3b3b;
   border: none;
   text-align: center;
-  border-right: 1px solid rgb(101, 101, 101);
+  border-right: 1px solid rgba(100, 100, 100, 0.5);
 }
 
 .Searchbar .select-engine {
-  border-right: 1px solid rgb(101, 101, 101);
   border-radius: 10px 0px 0px 10px;
 }
 .Searchbar .select-mode {
   padding: 0 0.6em;
-  border-right: 1px solid rgb(101, 101, 101);
 }
 
 .Searchbar input {
@@ -50,7 +48,7 @@
   border-radius: 0 10px 10px 0;
   background-color: #3b3b3b;
   border: none;
-  border-left: 1px solid rgb(101, 101, 101);
+  border-left: 1px solid rgba(100, 100, 100, 0.5);
   padding: 0.6em 1.6em;
   font-weight: 500;
   font-family: inherit;

@@ -123,7 +123,6 @@ const Searchbar = () => {
       let engine: any = searchEngines.find(
         (item: any) => item.name === searchEngine.name
       );
-      console.log(engine);
 
       let searchUrl = ``;
 
