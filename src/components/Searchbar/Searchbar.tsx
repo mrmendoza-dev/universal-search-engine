@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
-import "./index.css";
+import "./Searchbar.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+("@fortawesome/free-solid-svg-icons");
+
+export const icons = {
+  faMagnifyingGlass,
+};
 const Searchbar = () => {
   const searchEngines = [
     {
@@ -8,30 +15,40 @@ const Searchbar = () => {
       homepage: "https://www.google.com/",
       searchURL: "https://www.google.com/search?q=%s",
       imageSearchURL: "https://www.google.com/search?q=%s&tbm=isch",
+      newsSearchURL: "https://www.google.com/search?q=%s&tbm=nws",
+      videoSearchURL: "https://www.google.com/search?q=%s&tbm=vid",
     },
     {
       name: "Brave",
       homepage: "https://search.brave.com/",
       searchURL: "https://search.brave.com/search?q=%s",
       imageSearchURL: "https://search.brave.com/images?q=%s",
+      newsSearchURL: "https://search.brave.com/news?q=%s",
+      videoSearchURL: "https://search.brave.com/videos?q=%s",
     },
     {
       name: "Bing",
       homepage: "https://www.bing.com/",
       searchURL: "https://www.bing.com/search?q=%s",
       imageSearchURL: "https://www.bing.com/images/search?q=%s",
+      newsSearchURL: "https://www.bing.com/news/search?q=%s",
+      videoSearchURL: "https://www.bing.com/videos/search?q=%s",
     },
     {
       name: "Yahoo",
       homepage: "https://www.yahoo.com/",
       searchURL: "https://www.search.yahoo.com/search?p=%s",
       imageSearchURL: "https://images.search.yahoo.com/search/images?p=%s",
+      newsSearchURL: "https://news.search.yahoo.com/search?p=%s",
+      videoSearchURL: "https://video.search.yahoo.com/search/video?p=%s",
     },
     {
       name: "DuckDuckGo",
       homepage: "https://duckduckgo.com/",
       searchURL: "https://duckduckgo.com/?q=%s",
       imageSearchURL: "https://duckduckgo.com/?q=%s&iax=images&ia=images",
+      newsSearchURL: "https://duckduckgo.com/?q=%s&iar=news&ia=news",
+      videoSearchURL: "https://duckduckgo.com/?q=%s&iax=videos&ia=videos",
     },
     {
       name: "Baidu",
@@ -39,31 +56,41 @@ const Searchbar = () => {
       searchURL: "https://www.baidu.com/s?wd=%s",
       imageSearchURL:
         "https://image.baidu.com/search/index?tn=baiduimage&word=%s",
+      newsSearchURL:
+        "https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&word=%s",
+      videoSearchURL:
+        "https://www.baidu.com/sf/vsearch?pd=video&tn=vsearch&wd=%s",
     },
     {
       name: "Yandex",
       homepage: "https://www.yandex.com/",
       searchURL: "https://www.yandex.com/search/?text=%s",
       imageSearchURL: "https://yandex.com/images/search?text=%s",
-    },
-    {
-      name: "WolframAlpha",
-      homepage: "https://www.wolframalpha.com/",
-      searchURL: "https://www.wolframalpha.com/input/?i=%s",
-      imageSearchURL: "https://www.wolframalpha.com/input/?i=%s&t=image",
+      newsSearchURL: "https://news.yandex.com/yandsearch?rpt=nnews2&text=%s",
+      videoSearchURL: "https://yandex.com/video/search?text=%s",
     },
     {
       name: "Ask",
       homepage: "https://www.ask.com/",
       searchURL: "https://www.ask.com/web?q=%s",
       imageSearchURL: "https://www.ask.com/images?q=%s",
+      newsSearchURL: "https://www.ask.com/news?q=%s",
+      videoSearchURL: "https://www.ask.com/videos?q=%s",
     },
     {
       name: "Aol",
       homepage: "https://www.aol.com/",
       searchURL: "https://search.aol.com/aol/search?q=%s",
       imageSearchURL: "https://www.search.aol.com/aol/image?q=%s",
+      newsSearchURL: "https://search.aol.com/aol/news?q=%s",
+      videoSearchURL: "https://search.aol.com/aol/video?q=%s",
     },
+    // {
+    //   name: "WolframAlpha",
+    //   homepage: "https://www.wolframalpha.com/",
+    //   searchURL: "https://www.wolframalpha.com/input/?i=%s",
+    //   imageSearchURL: "https://www.wolframalpha.com/input/?i=%s&t=image",
+    // },
   ];
 
 
@@ -130,6 +157,10 @@ const Searchbar = () => {
         searchUrl = engine.searchURL.replace("%s", inputValue);
       } else if (searchMode === "image") {
         searchUrl = engine.imageSearchURL.replace("%s", inputValue);
+      } else if (searchMode === "video") {
+        searchUrl = engine.videoSearchURL.replace("%s", inputValue);
+      } else if (searchMode === "news") {
+        searchUrl = engine.newsSearchURL.replace("%s", inputValue);
       }
 
       window.location.href = searchUrl;
@@ -182,11 +213,13 @@ const Searchbar = () => {
         >
           <option value="search">Search</option>
           <option value="image">Image</option>
+          <option value="video">Video</option>
+          <option value="news">News</option>
         </select>
 
         <input type="text" value={inputValue} onChange={handleChange} />
         <button onClick={handleSubmit}>
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <FontAwesomeIcon title="Search" icon={icons.faMagnifyingGlass} className="icon"/>
         </button>
       </form>
     </div>

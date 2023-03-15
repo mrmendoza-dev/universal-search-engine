@@ -57,8 +57,8 @@
   transition: all 200ms;
 }
 
-.Searchbar button i {
-  height: min-content;
+.Searchbar button .icon {
+  width: 20px;
 }
 
 .Searchbar button:hover {
